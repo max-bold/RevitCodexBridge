@@ -1,0 +1,6 @@
+bin/
+obj/
+deploy/
+*.user
+*.suo
+.vs/

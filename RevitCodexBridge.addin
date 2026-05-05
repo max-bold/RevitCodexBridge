@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Revit Codex Bridge</Name>
+    <Assembly>__REPLACE_WITH_FULL_PATH_TO_REVIT_CODEX_BRIDGE_DLL__</Assembly>
+    <AddInId>8C2D37A6-4B54-4A09-8B36-76243248670E</AddInId>
+    <FullClassName>RevitCodexBridge.BridgeApplication</FullClassName>
+    <VendorId>CODX</VendorId>
+    <VendorDescription>Local Codex bridge for Revit API debugging</VendorDescription>
+  </AddIn>
+</RevitAddIns>
