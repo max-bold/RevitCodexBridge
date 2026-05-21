@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revit Text Notes"
+  short_description: "Edit selected Revit text notes through RevitCodexBridge."
+  default_prompt: "Use this when I ask you to rewrite, correct, expand, renumber, or otherwise edit the currently selected text note in Revit."

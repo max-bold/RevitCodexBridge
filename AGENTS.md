@@ -63,6 +63,14 @@ Use scripts from `scripts/` instead of hand-writing HTTP calls:
 
 For destructive operations, run dry-run first unless the user clearly asked for deletion.
 
+## Repository skills
+
+Project-specific Codex skills live in `.codex/skills/`. Prefer these repo-local skills over user-level skills when a request matches them, so repeated Revit workflows stay versioned with the bridge.
+
+- `revit-edit-selected-text-note`: use when asked to rewrite, correct, expand, renumber, translate, or otherwise edit the currently selected Revit text block.
+- `revit-hide-sections-by-view-purpose`: use when asked to hide section markers from another discipline/package by `Назначение вида` and add the filter to a Revit view template.
+- `revit-annotate-stairs-current-view`: use when asked to create stair annotations, stair paths, or stair direction arrows for all stairs on the current Revit view.
+
 ## `run-csharp` contract
 
 The submitted code is inserted into:

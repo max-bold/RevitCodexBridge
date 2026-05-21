@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revit Stair Annotations"
+  short_description: "Add stair path arrows to current views."
+  default_prompt: "Use this when I ask you to create annotations, stair paths, or arrows for all stairs on the current Revit view."

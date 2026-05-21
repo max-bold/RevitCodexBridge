@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revit Section Filters"
+  short_description: "Create view-template filters that hide sections by view purpose."
+  default_prompt: "Use this when I ask you to hide sections from another discipline or add a filter to a Revit view template based on the project parameter Назначение вида."

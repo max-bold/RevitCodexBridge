@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revit Measure Sweep Path"
+  short_description: "Measure Revit sweep path length"
+  default_prompt: "Use $revit-measure-sweep-path to measure the path length of the selected Revit sweep."
