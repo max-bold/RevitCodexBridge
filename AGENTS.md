@@ -28,6 +28,36 @@ If Revit is installed in a non-default location, pass it explicitly:
 .\scripts\Install-Bridge.ps1 -RevitExe 'D:\Apps\Autodesk\Revit 2025\Revit.exe'
 ```
 
+## Revit SDK documentation
+
+When the user asks for Revit API work and the local SDK docs are missing, ask the user to download and install the official Autodesk Revit SDK for the same major/minor Revit version used by the project. For this repository, prefer the Revit 2025.x SDK to match the Revit 2025 add-in.
+
+Having the SDK available helps Codex solve Revit API tasks faster and with lower token usage because `RevitAPI.chm` can be searched locally instead of repeatedly checking online references.
+
+Official Autodesk Revit API developer overview: https://aps.autodesk.com/developer/overview/revit-api
+
+Expected SDK input:
+
+- `RevitAPI.chm` from the installed SDK, for example `D:\Revit 2025.3 SDK\RevitAPI.chm`;
+- full 7-Zip available at `C:\Program Files\7-Zip\7z.exe`, or another extractor that supports CHM archives.
+
+Extract the CHM into the project-local `APIdocs` folder, not into the SDK folder. Keep the `APIdocs` directory versioned, but leave the extracted SDK files inside it ignored.
+
+```powershell
+New-Item -ItemType Directory -Force -Path .\APIdocs | Out-Null
+& 'C:\Program Files\7-Zip\7z.exe' x -y "-o$PWD\APIdocs" 'D:\Revit 2025.3 SDK\RevitAPI.chm'
+```
+
+Use the local search wrapper before browsing the internet for Revit API reference details:
+
+```powershell
+.\scripts\Search-RevitApiDocs.ps1 FilteredElementCollector
+.\scripts\Search-RevitApiDocs.ps1 'Transaction.HasStarted' -MaxResults 5
+.\scripts\Search-RevitApiDocs.ps1 'Wall.Create' -OpenFirst
+```
+
+If `APIdocs/html` is absent, tell the user which SDK version is needed and ask them to provide or install it. Do not commit extracted SDK documentation; files under `APIdocs/` are generated local reference content except the directory placeholder.
+
 ## Runtime model
 
 - Revit must be running with the `Revit Codex Bridge` add-in loaded.

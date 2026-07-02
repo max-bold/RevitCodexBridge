@@ -103,6 +103,32 @@ If Revit is installed in a custom location, pass the path explicitly:
 .\scripts\Install-Bridge.ps1 -RevitExe 'D:\Apps\Autodesk\Revit 2025\Revit.exe'
 ```
 
+## Optional Revit SDK docs
+
+Installing the official Revit SDK for the same Revit version is strongly
+recommended when you plan to ask Codex for Revit API work. The SDK includes the
+local `RevitAPI.chm` reference, which lets the agent search the API on disk
+instead of spending time and tokens looking up documentation online.
+
+Codex agents should handle extracting and searching the SDK docs inside the
+project-local `APIdocs` folder. The folder itself is versioned so scripts have a
+stable path, while the extracted SDK files inside it are ignored.
+
+After downloading and installing the Revit SDK, send Codex a message like:
+
+```text
+The Revit SDK is installed at [path to SDK]. Please extract the API docs.
+```
+
+Example:
+
+```text
+The Revit SDK is installed at D:\Revit 2025.3 SDK. Please extract the API docs.
+```
+
+Official Autodesk Revit API developer overview:
+https://aps.autodesk.com/developer/overview/revit-api
+
 ## Basic check
 
 With Revit running and a model open, you can check that the bridge is available:
@@ -139,6 +165,7 @@ Detailed operating rules for Codex agents are kept in `AGENTS.md`.
 
 - `BridgeApplication.cs` - the Revit add-in and local bridge implementation.
 - `scripts/` - install, publish, test, and command helper scripts.
+- `scripts/Search-RevitApiDocs.ps1` - local search helper for extracted Revit SDK API docs.
 - `.codex/skills/` - local Codex skills for repeatable Revit workflows.
 - `AGENTS.md` - technical instructions for AI agents working in this repository.
 

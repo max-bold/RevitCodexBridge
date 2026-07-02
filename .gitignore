@@ -1,6 +1,8 @@
 bin/
 obj/
 deploy/
+APIdocs/*
+!APIdocs/.gitkeep
 *.user
 *.suo
 .vs/
